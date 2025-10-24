@@ -1,15 +1,4 @@
-############################################
-# AMBIENTE PARA N8N CLOUD + WAHA + REDIS
-############################################
-# Criado por Gabriel Henrique
-# Baseado no setup de Guilherme Lazarotto
-# Adaptado para integração com N8N Cloud Starter
-############################################
-
 services:
-  ##########################################
-  # REDIS - memória do agente de IA
-  ##########################################
   redis:
     image: redis:latest
     platform: linux/amd64
@@ -21,16 +10,12 @@ services:
     volumes:
       - redis_data:/data
 
-  ##########################################
-  # WAHA - WhatsApp API Headless
-  ##########################################
+
   waha:
     image: devlikeapro/waha:latest
     platform: linux/amd64
     environment:
-      # 👉 Substitua abaixo pela URL do seu webhook N8N Cloud:
-      # Exemplo: https://seuusuario.n8n.cloud/webhook/webhook
-      WHATSAPP_HOOK_URL: https://SEU_SUBDOMINIO_DO_N8N.n8n.cloud/webhook/webhook
+      WHATSAPP_HOOK_URL: https://gabrielnovaes.app.n8n.cloud/webhook/webhook
 
       WHATSAPP_DEFAULT_ENGINE: GOWS
       WHATSAPP_HOOK_EVENTS: message
